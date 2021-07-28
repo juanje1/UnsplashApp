@@ -1,3 +1,29 @@
 <resources>
-    <string name="app_name">UnsplashApp</string>
+    <string name="appName">UnsplashApp</string>
+    <string name="settingsMenu">Settings</string>
+    <string name="toolbarIndex">Unsplash |</string>
+    <string name="toolbarSettings">Unsplash | Settings</string>
+    <string name="iconDescription">Image</string>
+    <string name="photoAuthor">- Author: %1$s</string>
+    <string name="photoDescription">- Description: %1$s</string>
+    <string name="photoLikes">- Likes: %1$s</string>
+    <string name="make">- Make: %1$s</string>
+    <string name="model">- Model: %1$s</string>
+    <string name="exposureTime">- Exposure Time: %1$s</string>
+    <string name="aperture">- Aperture: %1$s</string>
+    <string name="focalLength">- Focal Length: %1$s</string>
+    <string name="iso">- ISO: %1$s</string>
+    <string name="city">- City: %1$s</string>
+    <string name="country">- Country: %1$s</string>
+    <string name="photoName">- Name: %1$s</string>
+    <string name="photoUserName">- Username: %1$s</string>
+    <string name="photoCamera"><![CDATA[<u>Camera</u>]]></string>
+    <string name="photoLocation"><![CDATA[<u>Location</u>]]></string>
+    <string name="photoTags"><![CDATA[<u>Tags</u>]]></string>
+    <string name="photoUser"><![CDATA[<u>User</u>]]></string>
+    <string name="numberOfPage">Number of page</string>
+    <string name="defaultNumberOfPage">1</string>
+    <string name="numberPerPage">Number per page</string>
+    <string name="defaultNumberPerPage">10</string>
+    <string name="orderSettings">Order of appearance</string>
 </resources>

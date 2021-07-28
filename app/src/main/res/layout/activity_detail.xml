@@ -1,0 +1,223 @@
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/scrollView">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <include layout="@layout/toolbar"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
+            <ImageView
+                    android:id="@+id/photoIcon"
+                    android:layout_width="375dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/iconDescription"
+                    tools:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                    android:id="@+id/userNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textStyle="bold"
+                    tools:text="User Name"/>
+
+            <TextView
+                    android:id="@+id/photoDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- Description: ..."/>
+
+            <TextView
+                    android:id="@+id/photoLikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- Likes: ..."/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                    android:id="@+id/photoCamera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    tools:text="Camera"/>
+
+            <TextView
+                    android:id="@+id/make"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- Make: ..."/>
+
+            <TextView
+                    android:id="@+id/model"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- Model: ..."/>
+
+            <TextView
+                    android:id="@+id/exposureTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- Exposure Time: ..."/>
+
+            <TextView
+                    android:id="@+id/aperture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- Aperture: ..."/>
+
+            <TextView
+                    android:id="@+id/focalLength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- Focal Length: ..."/>
+
+            <TextView
+                    android:id="@+id/iso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- ISO: ..."/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                    android:id="@+id/photoLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    tools:text="Location"/>
+
+            <TextView
+                    android:id="@+id/city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- City: ..."/>
+
+            <TextView
+                    android:id="@+id/country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- Country: ..."/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                    android:id="@+id/photoTags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    tools:text="Tags"/>
+
+            <TextView
+                    android:id="@+id/tagsList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="Tag 1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                    android:id="@+id/photoUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    tools:text="User"/>
+
+            <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- Name: ..."/>
+
+            <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xlarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="- Username: ..."/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
