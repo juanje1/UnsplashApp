@@ -14,8 +14,6 @@ const val ENDPOINT_PHOTOS = "/photos"
 const val URL_PHOTOS = "${SERVER}${ENDPOINT_PHOTOS}"
 const val URL_PHOTO_BY_ID = "${SERVER}${ENDPOINT_PHOTOS}/"
 const val MESSAGE_ERROR = "Internal Error in Unsplash App"
-const val MAX_RETRIES = 3
-const val MESSAGE_MAX_RETRIES = "Maximum number of retries"
 const val FIELD_NULL = "Unknown"
 
 private val gson = Gson()
@@ -27,6 +25,7 @@ fun getCurrentDate(): String {
 }
 
 fun executeUrlPhotos(url: String): List<Photos>? {
+    outputJsonStr = null
     try { outputJsonStr = URL(url).readText() }
     catch (exception: FileNotFoundException) { }
     finally { return getGsonPhotos() }
@@ -38,6 +37,7 @@ private fun getGsonPhotos(): List<Photos>? {
 }
 
 fun executeUrlPhotoById(url: String): Photos? {
+    outputJsonStr = null
     try { outputJsonStr = URL(url).readText() }
     catch (exception: FileNotFoundException) { }
     finally { return getGsonPhotoById() }

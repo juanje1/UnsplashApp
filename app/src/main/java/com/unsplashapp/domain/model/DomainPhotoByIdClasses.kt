@@ -13,4 +13,4 @@ data class TagsByIdResult(val title: String)
 
 data class UserByIdResult(val username: String, val name: String)
 
-data class UrlsByIdResult(val small: String, val full: String)
+data class UrlsByIdResult(val small: String)

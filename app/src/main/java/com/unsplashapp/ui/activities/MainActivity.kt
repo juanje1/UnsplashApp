@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 
 class MainActivity : CoroutineScopeActivity(), ToolbarManager {
 
@@ -29,10 +28,6 @@ class MainActivity : CoroutineScopeActivity(), ToolbarManager {
 
     private var updatedSettingsCurrent: Boolean by DelegatesExt.preference(
         this, SettingsActivity.UPDATED_SETTINGS, SettingsActivity.DEFAULT_UPDATED_SETTINGS)
-
-    companion object {
-        var numberRetries = 0
-    }
 
     override val toolbar by lazy { find<Toolbar>(R.id.toolbar) }
 
@@ -71,17 +66,11 @@ class MainActivity : CoroutineScopeActivity(), ToolbarManager {
             }
             photosList.adapter = adapter
             toolbarTitle = "${getString(R.string.toolbarIndex)} ${getCurrentDate()}"
-            numberRetries = 0
-        } else { if (getRetry()) showErrorAndRetry(findViewById(R.id.frameLayout)) else toast(MESSAGE_MAX_RETRIES) }
-    }
-
-    private fun getRetry(): Boolean {
-        numberRetries += 1
-        return numberRetries <= MAX_RETRIES
+        } else showErrorAndRetry(findViewById(R.id.frameLayout))
     }
 
     private fun showErrorAndRetry(view: View) {
-        Snackbar.make(view, MESSAGE_ERROR, Snackbar.LENGTH_LONG)
+        Snackbar.make(view, MESSAGE_ERROR, Snackbar.LENGTH_INDEFINITE)
             .setAction("Retry"){ loadPhotos() }
             .setActionTextColor(Color.RED)
             .show()

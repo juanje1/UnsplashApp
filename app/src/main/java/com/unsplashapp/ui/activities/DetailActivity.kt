@@ -14,16 +14,17 @@ import com.unsplashapp.domain.model.PhotoByIdResult
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.find
-import org.jetbrains.anko.toast
 import java.lang.StringBuilder
 
 class DetailActivity : CoroutineScopeActivity(), ToolbarManager {
+
+    private var updatedSettingsCurrent: Boolean by DelegatesExt.preference(
+        this, SettingsActivity.UPDATED_SETTINGS, SettingsActivity.DEFAULT_UPDATED_SETTINGS)
 
     override val toolbar by lazy { find<Toolbar>(R.id.toolbar) }
 
     companion object {
         const val PHOTO_ID = "DetailActivity:photoId"
-        var numberRetries = 0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,35 +36,34 @@ class DetailActivity : CoroutineScopeActivity(), ToolbarManager {
         loadPhotoById()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        if (updatedSettingsCurrent) {
+            loadPhotoById()
+            updatedSettingsCurrent = false
+        }
+    }
+
     private fun loadPhotoById() = launch {
         val photoId = intent.getStringExtra(PHOTO_ID)
         val result = RequestPhotoByIdCommand(photoId!!).execute()
 
         if (result != null) {
             bindPhotoById(result)
-            numberRetries = 0
-        } else {
-            if (getRetry()) showErrorAndRetry(findViewById(R.id.scrollView)) else toast(
-                MESSAGE_MAX_RETRIES
-            )
-        }
+        } else showErrorAndRetry(findViewById(R.id.scrollView))
     }
 
     private fun showErrorAndRetry(view: View) {
-        Snackbar.make(view, MESSAGE_ERROR, Snackbar.LENGTH_LONG)
+        Snackbar.make(view, MESSAGE_ERROR, Snackbar.LENGTH_INDEFINITE)
             .setAction("Retry") { loadPhotoById() }
             .setActionTextColor(Color.RED)
             .show()
     }
 
-    private fun getRetry(): Boolean {
-        numberRetries += 1
-        return numberRetries <= MAX_RETRIES
-    }
-
     private fun bindPhotoById(photo: PhotoByIdResult) = with(photo) {
         toolbarTitle = user.username
-        Picasso.with(this@DetailActivity).load(urls.full).into(photoIcon)
+        Picasso.with(this@DetailActivity).load(urls.small).into(photoIcon)
         userNameText.text = user.username
         photoDescription.text = getString(R.string.photoDescription, isNull(description))
         photoLikes.text = getString(R.string.photoLikes, likes.toString())

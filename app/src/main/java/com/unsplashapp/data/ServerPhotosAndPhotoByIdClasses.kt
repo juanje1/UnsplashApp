@@ -12,4 +12,4 @@ data class Tags(val title: String)
 
 data class User(val username: String, val name: String)
 
-data class Urls(val small: String, val full: String)
+data class Urls(val small: String)

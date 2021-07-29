@@ -31,6 +31,6 @@ class ServerDataMapperPhotoById {
     }
 
     private fun convertUrlsByIdToDomain(urls: Urls) = with(urls) {
-        UrlsByIdResult(small, full)
+        UrlsByIdResult(small)
     }
 }
