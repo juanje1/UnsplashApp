@@ -41,7 +41,6 @@ class DetailActivity : CoroutineScopeActivity(), ToolbarManager {
 
         if (updatedSettingsCurrent) {
             loadPhotoById()
-            updatedSettingsCurrent = false
         }
     }
 
