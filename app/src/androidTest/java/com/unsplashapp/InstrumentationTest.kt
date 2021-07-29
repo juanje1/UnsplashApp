@@ -1,7 +1,6 @@
 package com.unsplashapp
 
-/**import android.view.View
-import android.widget.SeekBar
+import android.view.View
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -29,50 +28,46 @@ class InstrumentationTest {
     @Test fun itemClickNavigatesToDetails() {
         sleep(7000)
 
-        onView(withId(R.id.charactersList)).perform(
+        onView(withId(R.id.photosList)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
 
-        onView(withId(R.id.characterName)).check(matches(isAssignableFrom(TextView::class.java)))
-        onView(withId(R.id.characterDescription)).check(matches(isAssignableFrom(TextView::class.java)))
-        onView(withId(R.id.characterComics)).check(matches(isAssignableFrom(TextView::class.java)))
-        onView(withId(R.id.comicsList)).check(matches(isAssignableFrom(TextView::class.java)))
-        onView(withId(R.id.characterStories)).check(matches(isAssignableFrom(TextView::class.java)))
-        onView(withId(R.id.storiesList)).check(matches(isAssignableFrom(TextView::class.java)))
-        onView(withId(R.id.characterEvents)).check(matches(isAssignableFrom(TextView::class.java)))
-        onView(withId(R.id.eventsList)).check(matches(isAssignableFrom(TextView::class.java)))
-        onView(withId(R.id.characterSeries)).check(matches(isAssignableFrom(TextView::class.java)))
-        onView(withId(R.id.seriesList)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.userNameText)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.photoDescription)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.photoLikes)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.photoCamera)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.make)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.model)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.exposureTime)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.aperture)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.focalLength)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.iso)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.photoLocation)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.city)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.country)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.photoTags)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.tagsList)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.photoUser)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.name)).check(matches(isAssignableFrom(TextView::class.java)))
+        onView(withId(R.id.userName)).check(matches(isAssignableFrom(TextView::class.java)))
     }
 
     @Test fun checkValuesSettings() {
         openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
         onView(withText(R.string.settingsMenu)).perform(click())
-        onView(withId(R.id.limitSeekBar)).check(matches(withProgress(25)))
-        onView(withId(R.id.currentLimitTextView)).check(matches(withText("25")))
-        onView(withId(R.id.orderSpinner)).check(matches(withValue("Name Ascending")))
+        onView(withId(R.id.numberOfPageEditText)).check(matches(withText("1")))
+        onView(withId(R.id.numberPerPageEditText)).check(matches(withText("10")))
+        onView(withId(R.id.orderSpinner)).check(matches("Latest".withValue()))
     }
 
-    private fun withProgress(expectedProgress: Int): Matcher<View> =
-        object : BoundedMatcher<View, SeekBar>(SeekBar::class.java) {
-
-            override fun matchesSafely(seekBar: SeekBar): Boolean =
-                seekBar.progress == expectedProgress
-
-            override fun describeTo(description: Description) {
-                description.appendText("expected: ")
-                description.appendText("$expectedProgress")
-            }
-        }
-
-    private fun withValue(expectedValue: String): Matcher<View> =
+    private fun String.withValue(): Matcher<View> =
         object : BoundedMatcher<View, Spinner>(Spinner::class.java) {
 
             override fun matchesSafely(spinner: Spinner): Boolean =
-                spinner.selectedItem == expectedValue
+                spinner.selectedItem == this@withValue
 
             override fun describeTo(description: Description) {
                 description.appendText("expected: ")
-                description.appendText(expectedValue)
+                description.appendText(this@withValue)
             }
         }
-}**/
+}

@@ -45,3 +45,25 @@ fun executeUrlPhotoById(url: String): Photos? {
 
 private fun getGsonPhotoById(): Photos? =
     gson.fromJson(outputJsonStr, Photos::class.java)
+
+
+fun getListPhotos(numberElements: Int): List<Photos> {
+    val photosList = ArrayList<Photos>()
+    for (i in 1..numberElements) photosList.add(getPhotos(i))
+    return photosList
+}
+
+fun getPhotos(id: Int): Photos {
+    val imageSmall = "/img/src/picture${id}.jpg"
+
+    val tags1 = Tags("title 1")
+    val tags2 = Tags("title 2")
+
+    val exif = Camera("XXX", "XXX-123", "1/100", "1.0", "2.0", 100)
+    val location = Location("City $id", "Country $id")
+    val tags = arrayListOf(tags1, tags2)
+    val user = User("UserName $id", "Name $id")
+    val urls = Urls(imageSmall)
+
+    return Photos(id.toString(), 1, "description $id", exif, location, tags, user, urls)
+}
