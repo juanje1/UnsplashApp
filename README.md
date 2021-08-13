@@ -15,7 +15,7 @@ Also, there are error control showing a SnackBar with the error.
 Finally, it has the following characteristics:
 
 - Full code in Kotlin
-- Request to a Unsplash API
+- Request to an Unsplash API
 - Anko Library
 - Picasso Library (for images)
 - Gson Library (for deserialization)
