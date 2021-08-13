@@ -1,8 +1,8 @@
 # UnsplashApp
-Application for showing a Unsplash photos list and the details of each one
+Application for showing an Unsplash photos list and the details of each one
 
 ## Description
-In the main activity the app shows a Unsplash photos list by default the page '1', with '10' elements and sorting by 'Latest'. In this activity, it shows a photo picture, the author, username and the likes of each photo.
+In the main activity the app shows an Unsplash photos list by default the page '1', with '10' elements and sorting by 'Latest'. In this activity, it shows a photo picture, the author, username and the likes of each photo.
 
 When you select one, you can see the details with a picture, the username, the description, the likes, the camera details, the location details, the photo tags and the user details.
 
